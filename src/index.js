@@ -9,6 +9,8 @@ import promiseMiddleware from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
 import Reducer from './redux/reducer';
 
+import 'bootstrap/dist/css/bootstrap.min.css'; //react-bootstrap 사용시 import해와야함
+
 //함수와 프로미스를 받기 위한 미들웨어
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk) (createStore);
 

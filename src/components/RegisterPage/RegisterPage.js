@@ -1,9 +1,25 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const RegisterPage = () => {
     return (
-        <div>
-            레지스터 페이지
+        <div className="auth-wrapper">
+            <div style={{textAlign: 'center'}}>
+                <h3>Register</h3>
+            </div>
+             <form >
+                <label>Email</label>
+                <input name="email" type="email" />
+                <label>name</label>
+                <input name="name"/>
+                <label>Password</label>
+                <input name="password" type="password" />
+                <label>Password Confirm</label>
+                <input name="password_confirm" type="password" />
+                <input type="submit" />
+                <Link style={{color: "gray", textDecoration: 'none'}} to="/login">이미 아이디가 있으신가요?</Link>
+            </form>
+
         </div>
     )
 }
