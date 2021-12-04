@@ -1,7 +1,11 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 
 const RegisterPage = () => {
+    const { register, watch, formState: { errors }} = useForm()
+    console.log(watch("email"))
+    console.log(errors) //? erros 객체에 아무것도 안담김.
     return (
         <div className="auth-wrapper">
             <div style={{textAlign: 'center'}}>
@@ -9,7 +13,8 @@ const RegisterPage = () => {
             </div>
              <form >
                 <label>Email</label>
-                <input name="email" type="email" />
+                <input name="email" type="email" ref={register({required: true, pattern: /^\S+@\S+$/i})}/>
+                {errors.email && <p>위 항목은 필수정보입니다.</p>}
                 <label>name</label>
                 <input name="name"/>
                 <label>Password</label>
